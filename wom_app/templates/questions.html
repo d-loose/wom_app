@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h1>{% block title %}Questions for {{ election }}{% endblock %}</h1>
+<form action="{{ url_for('wom.results', election=election) }}" method="post">
+    <table>
+        <tr>
+            <th>Title</th>
+            <th>Question</th>
+            <th>Agree</th>
+            <th>Neutral</th>
+            <th>Disagree</th>
+        </tr>
+        {% for q in questions.iterrows() %}
+        <tr>
+            <td>{{ q[1]['title'] }}</td>
+            <td>{{ q[1]['question'] }}</td>
+            <td><input type="radio" value="1" name="answer[{{ loop.index-1 }}]"></td>
+            <td><input type="radio" value="0" name="answer[{{ loop.index-1 }}]" checked></td>
+            <td><input type="radio" value="-1" name="answer[{{ loop.index-1 }}]"></td>
+        </tr>
+        {% endfor %}
+    </table>
+    <input type="submit">
+</form>
+{% endblock %}

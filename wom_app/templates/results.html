@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h1>{% block title %}Results for {{ election }}{% endblock %}</h1>
+{% if show_link %}
+<a href="{{ url_for('wom.questions', election=election) }}">
+    <h3>Questions</h3>
+</a><br>
+{% endif %}
+<img src="{{ cluster_plot }}">
+<img src="{{ scatter_plot }}">
+<img src="{{ component_0 }}">
+<img src="{{ component_1 }}">
+{% endblock %}

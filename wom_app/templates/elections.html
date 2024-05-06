@@ -1,0 +1,8 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h1>{% block title %}Elections{% endblock %}</h1>
+{% for election in elections %}
+<a href="{{ url_for('wom.election', election=election) }}">{{ election }}</a><br>
+{% endfor %}
+{% endblock %}
