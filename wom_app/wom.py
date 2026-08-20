@@ -69,6 +69,7 @@ def home():
     return render_template(
         "elections.html",
         elections=[
+            "sachsenanhalt2026",
             "bundestagswahl2025",
             "hamburg2025",
             "brandenburg2024",
